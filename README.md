@@ -2,7 +2,7 @@
 ## Use IMAGE SCRAPER to SCRAPE IMAGES from the WEB
 
 
-# run utils.py to download 10 images of fish, results sourced from [Duck Duck Go](https://duckduckgo.com/) search engine
+run utils.py to download 10 images of fish, results sourced from [Duck Duck Go](https://duckduckgo.com/) search engine
 
 ```shell
 $ python utils.py
