@@ -68,7 +68,7 @@ def remove_bad_images(folder):
 
 
 if __name__ == "__main__":
-    download_in_parallel("images", "fish", 10)
-    remove_bad_images('images')
+    download_in_parallel("fishimgs", "fish", 10)
+    remove_bad_images('fishimgs')
 
 
