@@ -36,27 +36,25 @@ def search_images_ddg(key,max_n=200):
 def download_image(dest, inp):
     """Downloads an image from a url to a destination
     """
-    i, url = inp
+    idx, url = inp
 
     dest = Path(dest)
     dest.mkdir(exist_ok=True)
 
+    url_path = url.split("?")[0]
+    url_path = Path(url_path)
+
+    suffix = url_path.suffix if url_path.suffix else '.jpg'
     try:
-        file_path = url.split("?")[0]
-        file_path = Path(file_path)
-
-        suffix = file_path.suffix if file_path.suffix else '.jpg'
-
-        name = i
-
         response = requests.get(url)
-        path_name = f'{dest}/{name}{suffix}'
+        path_name = f'{dest}/{idx}{suffix}'
 
         with open(path_name, 'wb') as f:
             f.write(response.content)
 
     except Exception as e:
         print(e)
+        print("Unable to download image from url")
     
 def download_in_parallel(dest, key, max_n):
     pool = Pool(cpu_count())
@@ -68,6 +66,7 @@ def download_in_parallel(dest, key, max_n):
     pool.join()
 
 def remove_bad_images(folder):
+    """Removes all files that do not have a valid image extension"""
     count = 0
     for filename in os.listdir(folder):
         path = f"{folder}/{filename}"
@@ -79,6 +78,5 @@ def remove_bad_images(folder):
 
 if __name__ == "__main__":
     download_in_parallel("fishimgs", "fish", 1)
-    remove_bad_images('fishimgs')
 
 
