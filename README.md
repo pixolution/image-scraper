@@ -5,7 +5,7 @@ Heavily inspired by fast.ai download_images
 
 Run scrape-images.py to select what you want and download those images! Results sourced from [Duck Duck Go](https://duckduckgo.com/) search engine
 
-
+Command Prompt
 ```cmd
 python scrape-images.py
 What do you want:
