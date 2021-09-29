@@ -5,6 +5,7 @@ import os
 from multiprocessing import Pool, cpu_count
 from functools import partial
 import imghdr
+from pathlib import Path
 
 def search_images_ddg(key,max_n=200):
     """Search for 'key' with DuckDuckGo and return a unique urls of 'max_n' images
@@ -32,16 +33,25 @@ def search_images_ddg(key,max_n=200):
 
     return set(urls)
 
-def download_image(dest, url):
+def download_image(dest, inp):
     """Downloads an image from a url to a destination
     """
-    if not os.path.exists(dest):
-        os.mkdir(dest)
+    i, url = inp
+
+    dest = Path(dest)
+    dest.mkdir(exist_ok=True)
 
     try:
-        file_name = url.split("/")[-1]
+        file_path = url.split("?")[0]
+        file_path = Path(file_path)
+
+        suffix = file_path.suffix if file_path.suffix else '.jpg'
+
+        name = i
+
         response = requests.get(url)
-        path_name = f'{dest}/{file_name}'
+        path_name = f'{dest}/{name}{suffix}'
+
         with open(path_name, 'wb') as f:
             f.write(response.content)
 
@@ -53,7 +63,7 @@ def download_in_parallel(dest, key, max_n):
     urls = search_images_ddg(key=key, max_n=max_n)
     print(f'found {len(urls)} urls')
     download_func = partial(download_image, dest)
-    results = pool.map(download_func, urls)
+    results = pool.map(download_func, list(enumerate(urls)))
     pool.close()
     pool.join()
 
@@ -68,7 +78,7 @@ def remove_bad_images(folder):
 
 
 if __name__ == "__main__":
-    download_in_parallel("fishimgs", "fish", 10)
+    download_in_parallel("fishimgs", "fish", 1)
     remove_bad_images('fishimgs')
 
 
