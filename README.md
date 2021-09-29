@@ -6,7 +6,7 @@ Heavily inspired by fast.ai download_images
 Run scrape-images.py to select what you want and download those images! Results sourced from [Duck Duck Go](https://duckduckgo.com/) search engine
 
 
-```
+```cmd
 C:\image-scraper>python scrape-images.py
 C:\image-scraper>What do you want:
 C:\image-scraper>fish
