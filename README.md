@@ -7,11 +7,11 @@ Run scrape-images.py to select what you want and download those images! Results 
 
 
 ```cmd
-C:\image-scraper>python scrape-images.py
-C:\image-scraper>What do you want:
-C:\image-scraper>fish
-C:\image-scraper>Number of images?
-C:\image-scraper>100
+python scrape-images.py
+What do you want:
+fish
+Number of images?
+100
 ```
 
 [MIT License](LICENSE)
