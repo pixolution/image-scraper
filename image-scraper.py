@@ -8,4 +8,3 @@ if __name__ == "__main__":
 	max_n = int(input())
 
 	download_in_parallel(path, key, max_n)
-	remove_bad_images(path)

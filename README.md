@@ -5,13 +5,29 @@ Heavily inspired by fast.ai download_images
 
 Run scrape-images.py to select what you want and download those images! Results sourced from [Duck Duck Go](https://duckduckgo.com/) search engine
 
-Command Prompt
+Example on Command Prompt
 ```cmd
 python scrape-images.py
 What do you want:
 fish
 Number of images?
 100
+```
+
+Gets you a folder with images in the following structure
+```
+image-scraper
+├── fishimgs
+│  ├── 0.png
+│  ├── 1.png
+│  ├── 2.png
+│  └── ...
+├── screenshots
+├── .gitignore
+├── image-scraper.py
+├── utils.py
+├── LICENSE
+└── README.md
 ```
 
 [MIT License](LICENSE)
