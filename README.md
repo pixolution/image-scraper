@@ -18,9 +18,9 @@ Gets you a folder with images in the following structure
 ```
 image-scraper
 ├── fishimgs
-│  ├── 0.png
-│  ├── 1.png
-│  ├── 2.png
+│  ├── 0.jpg
+│  ├── 1.jpg
+│  ├── 2.jpg
 │  └── ...
 ├── screenshots
 ├── .gitignore
