@@ -7,14 +7,14 @@ Run scrape-images.py to select what you want and download those images! Results 
 
 ## Install
 * clone this repo
-* create an virtual environment
+* create a virtual environment
 ```
 cd image-scraper
 python3 -mvenv venv
 ```
 * enter virtual environment
 ```
-source venv/bin/avtivate
+source venv/bin/activate
 ```
 * install requirements
 ```
